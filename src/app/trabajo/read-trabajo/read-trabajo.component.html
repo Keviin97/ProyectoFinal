@@ -1,0 +1,49 @@
+<div class="row m-b-18px">
+  <div class="col-md-12">
+      <!-- button to create new trabajo -->
+      <!-- <a (click)="createtrabajo()" class='btn btn-success pull-right'>
+        Nuevo trabajo <i class="now-ui-icons ui-1_simple-add"></i>
+      </a> -->
+          
+      <button (click)="createTrabajo()" class="btn btn-success pull-right">
+        <i class="fas fa-plus"></i> Nuevo trabajo
+      </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+      <!-- HTML table for our list of trabajo records -->
+      <table class='table table-striped table-bordered'>
+        <thead class="thead-light">
+          <tr>
+              <th>Id del trabajo</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+          </tr>
+        </thead>
+          <!-- Use *ngFor directive to loop throught our list of trabajos. -->
+          <tr *ngFor="let trabajo of trabajos">
+              <td>{{trabajo.id_Trabajo}}</td>
+              <td>{{trabajo.Nombre}}</td>
+              <td>
+                  <!-- read one trabajo button -->
+                  <a (click)="readOneTrabajo(trabajo.id_Trabajo)" class='btn btn-info'>
+                    <i class="far fa-eye"></i> Ver trabajo
+                  </a>
+
+                  <!-- edit trabajo button -->
+                  <a (click)="updateTrabajo(trabajo.id_Trabajo)" class='btn btn-warning'>
+                    <i class="fas fa-pen"></i> Editar
+                  </a>
+
+                  <!-- delete trabajo button -->
+                  <a (click)="deleteTrabajo(trabajo.id_Trabajo)" class='btn btn-danger'>
+                    <i class="fas fa-trash"></i> Borrar
+                  </a>
+              </td>
+          </tr>
+      </table>
+  </div>
+</div>  

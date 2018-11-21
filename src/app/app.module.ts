@@ -13,6 +13,13 @@ import { ReadSolicitanteComponent } from './solicitante/read-solicitante/read-so
 import { ReadOneSolicitanteComponent } from './solicitante/read-one-solicitante/read-one-solicitante.component';
 import { UpdateSolicitanteComponent } from './solicitante/update-solicitante/update-solicitante.component';
 import { DeleteSolicitanteComponent } from './solicitante/delete-solicitante/delete-solicitante.component';
+import { CreateTrabajoComponent } from './trabajo/create-trabajo/create-trabajo.component';
+import { ReadTrabajoComponent } from './trabajo/read-trabajo/read-trabajo.component';
+import { ReadOneTrabajoComponent } from './trabajo/read-one-trabajo/read-one-trabajo.component';
+import { UpdateTrabajoComponent } from './trabajo/update-trabajo/update-trabajo.component';
+import { DeleteTrabajoComponent } from './trabajo/delete-trabajo/delete-trabajo.component';
+import { SolicitantesComponent } from './solicitantes/solicitantes.component';
+import { TrabajosComponent } from './trabajos/trabajos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,13 @@ import { DeleteSolicitanteComponent } from './solicitante/delete-solicitante/del
     ReadOneSolicitanteComponent,
     UpdateSolicitanteComponent,
     DeleteSolicitanteComponent,
+    CreateTrabajoComponent,
+    ReadTrabajoComponent,
+    ReadOneTrabajoComponent,
+    UpdateTrabajoComponent,
+    DeleteTrabajoComponent,
+    SolicitantesComponent,
+    TrabajosComponent,
   ],
   imports: [
     BrowserModule,

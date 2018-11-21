@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="section-contact-us text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto text-center">
+        <h2 class="title">{{title}}</h2>
+        <!-- <h5 class="description">Aqui estan las ultimos trabajos que han sido registrados en el sistema.</h5> -->
+      </div>
+    </div>
+    <div class="separator separator-primary"></div>
+    <div class="section-story-overview">
+      <app-read-trabajo *ngIf="show_read_trabajo_html"
+      (show_create_trabajo_event)="showCreateTrabajo($event)"
+      (show_read_one_trabajo_event)="showReadOneTrabajo($event)"
+      (show_update_trabajo_event)="showUpdateTrabajo($event)"
+      (show_delete_trabajo_event)="showDeleteTrabajo($event)">
+      </app-read-trabajo>
+
+      <app-create-trabajo
+          *ngIf="show_create_trabajo_html"
+          (show_read_trabajos_event)="showReadTrabajos($event)">
+      </app-create-trabajo>
+
+      <app-read-one-trabajo
+          *ngIf="show_read_one_trabajo_html"
+          (show_read_trabajos_event)="showReadTrabajos($event)"
+          [id_Trabajo]="id_Trabajo">
+      </app-read-one-trabajo>
+
+      <app-update-trabajo
+          *ngIf="show_update_trabajo_html"
+          [id_Trabajo]="id_Trabajo"
+          (show_read_trabajos_event)="showReadTrabajos($event)">
+      </app-update-trabajo>
+      
+      <app-delete-trabajo
+          *ngIf="show_delete_trabajo_html"
+          [id_Trabajo]="id_Trabajo"
+          (show_read_trabajos_event)="showReadTrabajos($event)">
+      </app-delete-trabajo>
+    </div>
+  </div>
+</div>

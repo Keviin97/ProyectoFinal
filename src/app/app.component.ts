@@ -6,74 +6,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // properties for child components
-  title="Listado de solicitantes";
-  id_Solicitante;
+  show_login_html=false;
+  show_header_html=false;
+  show_solicitantes_html=true;
+  show_trabajos_html=false;
+  show_solicitudes_html=false;
 
-  // properties used to identify what views to show
-  show_read_solicitante_html=true;
-  show_create_solicitante_html=false;
-  show_read_one_solicitante_html=false;
-  show_update_solicitante_html=false;
-  show_delete_solicitante_html=false;
-
-  // show the 'create product form'
-  showCreateSolicitante($event){
-  
-    // set title
-    this.title=$event.title;
-
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_create_solicitante_html=true;
-  }
-
-  // show products list
-  showReadSolicitantes($event){
-    // set title
-    this.title=$event.title;
-
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_read_solicitante_html=true;
-  }
-
-  // hide all html views
   hideAll_Html(){
-    this.show_read_solicitante_html=false;
-    this.show_create_solicitante_html=false;
-    this.show_read_one_solicitante_html=false;
-    this.show_update_solicitante_html=false;
-    this.show_delete_solicitante_html=false;
+    this.show_login_html=false;
+    this.show_header_html=false;
+    this.show_solicitantes_html=false;
+    this.show_trabajos_html=false;
+    this.show_solicitudes_html=false;
   }
-  showReadOneSolicitante($event){
- 
-    // set title and product ID
-    this.title=$event.title;
-    this.id_Solicitante=$event.id_Solicitante;
- 
+
+  showLogin($event){
     // hide all html then show only one html
     this.hideAll_Html();
-    this.show_read_one_solicitante_html=true;
+    this.show_login_html=true;
   }
-  showUpdateSolicitante($event){
- 
-    // set title and product ID
-    this.title=$event.title;
-    this.id_Solicitante=$event.id_Solicitante;
- 
+
+  showSolicitantes($event){
     // hide all html then show only one html
     this.hideAll_Html();
-    this.show_update_solicitante_html=true;
+    this.show_header_html=true;
+    this.show_solicitantes_html=true;
   }
-  showDeleteSolicitante($event){
- 
-    // set title and product ID
-    this.title=$event.title;
-    this.id_Solicitante=$event.id_Solicitante;
- 
+  showTrabajos($event){
     // hide all html then show only one html
     this.hideAll_Html();
-    this.show_delete_solicitante_html=true;
+    this.show_header_html=true;
+    this.show_trabajos_html=true;
+  }
+  showSolicitudes($event){
+    // hide all html then show only one html
+    this.hideAll_Html();
+    this.show_header_html=true;
+    this.show_solicitudes_html=true;
   }
 }
