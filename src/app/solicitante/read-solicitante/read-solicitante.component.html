@@ -1,0 +1,49 @@
+<div class="row m-b-18px">
+  <div class="col-md-12">
+      <!-- button to create new solicitante -->
+      <!-- <a (click)="createSolicitante()" class='btn btn-success pull-right'>
+        Nuevo solicitante <i class="now-ui-icons ui-1_simple-add"></i>
+      </a> -->
+          
+      <button (click)="createSolicitante()" class="btn btn-success pull-right">
+        <i class="fas fa-plus"></i> Nuevo solicitante
+      </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+      <!-- HTML table for our list of solicitante records -->
+      <table class='table table-striped table-bordered'>
+        <thead class="thead-light">
+          <tr>
+              <th>Id del solicitante</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+          </tr>
+        </thead>
+          <!-- Use *ngFor directive to loop throught our list of solicitantes. -->
+          <tr *ngFor="let solicitante of solicitantes">
+              <td>{{solicitante.id_Solicitante}}</td>
+              <td>{{solicitante.Nombre}}</td>
+              <td>
+                  <!-- read one solicitante button -->
+                  <a (click)="readOneSolicitante(solicitante.Id_Solicitante)" class='btn btn-info'>
+                    <i class="far fa-eye"></i> Ver solicitante
+                  </a>
+
+                  <!-- edit solicitante button -->
+                  <a (click)="updateSolicitante(solicitante.Id_Solicitante)" class='btn btn-warning'>
+                    <i class="fas fa-pen"></i> Editar
+                  </a>
+
+                  <!-- delete solicitante button -->
+                  <a (click)="deleteSolicitante(solicitante.Id_Solicitante)" class='btn btn-danger'>
+                    <i class="fas fa-trash"></i> Borrar
+                  </a>
+              </td>
+          </tr>
+      </table>
+  </div>
+</div>  
