@@ -37,7 +37,20 @@ export class CreateSolicitanteComponent{
   // user clicks 'create' button
   createSolicitante(){
       // send data to server
-      this.solicitanteService.createSolicitante(this.create_solicitante_form.value)
+        console.log(this.create_solicitante_form.value);
+        var eachSolicitante = 
+        {
+            "Nombre": this.create_solicitante_form.controls['Nombre'].value,
+            "Email": this.create_solicitante_form.controls['Email'].value,
+            "Telefono": this.create_solicitante_form.controls['Telefono'].value,
+            "Fecha_Nacimiento": this.create_solicitante_form.controls['Fecha_Nacimiento'].value,
+            "DPI": this.create_solicitante_form.controls['DPI'].value,
+            "Experiencia": this.create_solicitante_form.controls['Experiencia'].value
+        };
+
+        console.log(eachSolicitante);
+
+      this.solicitanteService.createSolicitante(eachSolicitante)
           .subscribe(
                solicitante => {
                   // show an alert to tell the user if product was created or not

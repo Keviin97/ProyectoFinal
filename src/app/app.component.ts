@@ -46,4 +46,34 @@ export class AppComponent {
     this.show_update_solicitante_html=false;
     this.show_delete_solicitante_html=false;
   }
+  showReadOneSolicitante($event){
+ 
+    // set title and product ID
+    this.title=$event.title;
+    this.id_Solicitante=$event.id_Solicitante;
+ 
+    // hide all html then show only one html
+    this.hideAll_Html();
+    this.show_read_one_solicitante_html=true;
+  }
+  showUpdateSolicitante($event){
+ 
+    // set title and product ID
+    this.title=$event.title;
+    this.id_Solicitante=$event.id_Solicitante;
+ 
+    // hide all html then show only one html
+    this.hideAll_Html();
+    this.show_update_solicitante_html=true;
+  }
+  showDeleteSolicitante($event){
+ 
+    // set title and product ID
+    this.title=$event.title;
+    this.id_Solicitante=$event.id_Solicitante;
+ 
+    // hide all html then show only one html
+    this.hideAll_Html();
+    this.show_delete_solicitante_html=true;
+  }
 }

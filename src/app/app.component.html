@@ -10,13 +10,33 @@
       <div class="separator separator-primary"></div>
       <div class="section-story-overview">
         <app-read-solicitante *ngIf="show_read_solicitante_html"
-        (show_create_solicitante_event)="showCreateSolicitante($event)">
+        (show_create_solicitante_event)="showCreateSolicitante($event)"
+        (show_read_one_solicitante_event)="showReadOneSolicitante($event)"
+        (show_update_solicitante_event)="showUpdateSolicitante($event)"
+        (show_delete_solicitante_event)="showDeleteSolicitante($event)">
         </app-read-solicitante>
 
         <app-create-solicitante
             *ngIf="show_create_solicitante_html"
             (show_read_solicitantes_event)="showReadSolicitantes($event)">
         </app-create-solicitante>
+
+        <app-read-one-solicitante
+            *ngIf="show_read_one_solicitante_html"
+            (show_read_solicitantes_event)="showReadSolicitantes($event)"
+            [id_Solicitante]="id_Solicitante">
+        </app-read-one-solicitante>
+
+        <app-update-solicitante
+            *ngIf="show_update_solicitante_html"
+            [id_Solicitante]="id_Solicitante"
+            (show_read_solicitantes_event)="showReadSolicitantes($event)">
+        </app-update-solicitante>
+        <app-delete-solicitante
+            *ngIf="show_delete_solicitante_html"
+            [id_Solicitante]="id_Solicitante"
+            (show_read_solicitantes_event)="showReadSolicitantes($event)">
+        </app-delete-solicitante>
       </div>
     </div>
   </div>

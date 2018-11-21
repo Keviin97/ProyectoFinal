@@ -1,3 +1,137 @@
-<p>
-  update-solicitante works!
-</p>
+<div class="row m-b-18px">
+  <div class="col-md-12">
+    <button (click)="readSolicitantes()" class='btn btn-primary pull-right'>
+      <i class="fas fa-undo"></i> Regresar
+    </button>
+  </div>
+</div>
+
+<!-- HTML form for creating a product -->
+<div class="row text-left">
+  <div class="col-md-12">
+
+  <!--
+    1. Bind our HTML form to Angular using [formGroup]
+    2. If form was submitted, call createProduct() method of CreateProductComponent
+  -->
+  <form [formGroup]="update_solicitante_form" (ngSubmit)="updateSolicitante()">
+
+    <div class="form-group row">
+      <div class="col-md-6">
+          <label>Nombre</label>
+          <input formControlName="Nombre" name="Nombre" type="text" class="form-control" required placeholder="Ingrese su nombre completo">
+          <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('Nombre').touched && update_solicitante_form.get('Nombre').hasError('required')">
+            <div class="container">
+              <div class="alert-icon">
+                <i class="now-ui-icons objects_support-17"></i>
+              </div>
+              <strong>Error</strong> El nombre es un campo requerido.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </span>
+              </button>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+          <label>Email</label>
+          <input formControlName="Email" name="Email" type="email" class="form-control" required placeholder="Ingrese su correo electronico">
+          <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('Email').touched && update_solicitante_form.get('Email').hasError('required')">
+            <div class="container">
+              <div class="alert-icon">
+                <i class="now-ui-icons objects_support-17"></i>
+              </div>
+              <strong>Error</strong> El email es un campo requerido.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+      </div>  
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6">
+          <label>Telefono</label>
+          <input formControlName="Telefono" name="Telefono" type="text" class="form-control" required placeholder="Ingrese su numero de telefono">
+          <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('Telefono').touched && update_solicitante_form.get('Telefono').hasError('required')">
+            <div class="container">
+              <div class="alert-icon">
+                <i class="now-ui-icons objects_support-17"></i>
+              </div>
+              <strong>Error</strong> El telefono es un campo requerido.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <label>Fecha_Nacimiento</label>
+          <input formControlName="Fecha_Nacimiento" name="Fecha_Nacimiento" type="date" class="form-control" required placeholder="Ingrese su fecha de nacimiento">
+          <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('Fecha_Nacimiento').touched && update_solicitante_form.get('Fecha_Nacimiento').hasError('required')">
+            <div class="container">
+              <div class="alert-icon">
+                <i class="now-ui-icons objects_support-17"></i>
+              </div>
+              <strong>Error</strong> La fecha de nacimiento es un campo requerido.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6">
+          <label>DPI</label>
+          <input formControlName="DPI" name="DPI" type="text" class="form-control" required placeholder="Ingrese su numero de DPI">
+          <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('DPI').touched && update_solicitante_form.get('DPI').hasError('required')">
+              <div class="container">
+                <div class="alert-icon">
+                  <i class="now-ui-icons objects_support-17"></i>
+                </div>
+                <strong>Error</strong>El DPI es un campo requerido.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">
+                    <i class="now-ui-icons ui-1_simple-remove"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Experiencia</label>
+      <textarea class="form-control" rows="3" formControlName="Experiencia" name="Experiencia" required></textarea>
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="update_solicitante_form.get('Experiencia').touched && update_solicitante_form.get('Experiencia').hasError('required')">
+      <div class="container">
+        <div class="alert-icon">
+          <i class="now-ui-icons objects_support-17"></i>
+        </div>
+        <strong>Error</strong>La Experiencia es un campo requerido.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="now-ui-icons ui-1_simple-remove"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group pull-right">
+        <button class="btn btn-success btn-lg" type="submit" [disabled]="update_solicitante_form.invalid">
+          <i class="far fa-edit"></i> Actualizar
+        </button>
+    </div>
+  </form>
+  </div>
+</div>

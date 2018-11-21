@@ -1,0 +1,22 @@
+<div class="section section-team text-center">
+    <div class="container">
+        <div class="team">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="team-player">
+                        <img src="../assets/img/default.png" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised" style="width:200px">
+                        <h4 class="title">{{solicitante?.Nombre}}</h4>
+                        <p class="category text-primary"><b>CUI: </b>{{solicitante?.DPI}}</p>
+                        <h5><b>Correo electronico: </b>{{solicitante?.Email}}</h5>
+                        <h5><b>Telefono: </b>{{solicitante?.Telefono}}</h5>
+                        <h5><b>Fecha de nacimiento: </b>{{solicitante?.Fecha_Nacimiento}}</h5>
+                        <p class="description"><b>Experiencia: </b>{{solicitante?.Experiencia}}</p>
+                    </div>
+                </div>
+            </div>
+            <button (click)="readSolicitantes()" class='btn btn-primary pull-right'>
+                <i class="fas fa-undo"></i> Regresar
+            </button>
+        </div>
+    </div>
+</div>

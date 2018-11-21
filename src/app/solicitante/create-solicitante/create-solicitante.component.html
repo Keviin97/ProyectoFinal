@@ -55,7 +55,7 @@
     <div class="form-group row">
       <div class="col-md-6">
           <label>Telefono</label>
-          <input formControlName="Telefono" name="Telefono" type="number" class="form-control" required placeholder="Ingrese su numero de telefono">
+          <input formControlName="Telefono" name="Telefono" type="text" class="form-control" required placeholder="Ingrese su numero de telefono">
           <div class="alert alert-danger" role="alert" *ngIf="create_solicitante_form.get('Telefono').touched && create_solicitante_form.get('Telefono').hasError('required')">
             <div class="container">
               <div class="alert-icon">
@@ -91,7 +91,7 @@
     <div class="form-group row">
       <div class="col-md-6">
           <label>DPI</label>
-          <input formControlName="DPI" name="DPI" type="number" class="form-control" required placeholder="Ingrese su numero de DPI">
+          <input formControlName="DPI" name="DPI" type="text" class="form-control" required placeholder="Ingrese su numero de DPI">
           <div class="alert alert-danger" role="alert" *ngIf="create_solicitante_form.get('DPI').touched && create_solicitante_form.get('DPI').hasError('required')">
               <div class="container">
                 <div class="alert-icon">
