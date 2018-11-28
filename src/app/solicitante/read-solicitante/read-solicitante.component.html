@@ -29,19 +29,19 @@
               <td>{{solicitante.Nombre}}</td>
               <td>
                   <!-- read one solicitante button -->
-                  <a (click)="readOneSolicitante(solicitante.id_Solicitante)" class='btn btn-info'>
-                    <i class="far fa-eye"></i> Ver solicitante
-                  </a>
+                  <button (click)="readOneSolicitante(solicitante.id_Solicitante)" class='btn btn-info'>
+                      <i class="far fa-eye"></i> Ver solicitante
+                  </button>
 
                   <!-- edit solicitante button -->
-                  <a (click)="updateSolicitante(solicitante.id_Solicitante)" class='btn btn-warning'>
-                    <i class="fas fa-pen"></i> Editar
-                  </a>
+                  <button (click)="updateSolicitante(solicitante.id_Solicitante)" class='btn btn-warning'>
+                      <i class="fas fa-pen"></i> Editar
+                  </button>
 
                   <!-- delete solicitante button -->
-                  <a (click)="deleteSolicitante(solicitante.id_Solicitante)" class='btn btn-danger'>
-                    <i class="fas fa-trash"></i> Borrar
-                  </a>
+                  <button (click)="deleteSolicitante(solicitante.id_Solicitante)" class='btn btn-danger'>
+                      <i class="fas fa-trash"></i> Borrar
+                  </button>
               </td>
           </tr>
       </table>

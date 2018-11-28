@@ -29,19 +29,19 @@
               <td>{{trabajo.Nombre}}</td>
               <td>
                   <!-- read one trabajo button -->
-                  <a (click)="readOneTrabajo(trabajo.id_Trabajo)" class='btn btn-info'>
-                    <i class="far fa-eye"></i> Ver trabajo
-                  </a>
-
+                  <button (click)="readOneTrabajo(trabajo.id_Trabajo)" class='btn btn-info'>
+                      <i class="far fa-eye"></i> Ver trabajo
+                  </button>
+                
                   <!-- edit trabajo button -->
-                  <a (click)="updateTrabajo(trabajo.id_Trabajo)" class='btn btn-warning'>
-                    <i class="fas fa-pen"></i> Editar
-                  </a>
-
+                  <button (click)="updateTrabajo(trabajo.id_Trabajo)" class='btn btn-warning'>
+                      <i class="fas fa-pen"></i> Editar
+                  </button>
+                 
                   <!-- delete trabajo button -->
-                  <a (click)="deleteTrabajo(trabajo.id_Trabajo)" class='btn btn-danger'>
-                    <i class="fas fa-trash"></i> Borrar
-                  </a>
+                  <button (click)="deleteTrabajo(trabajo.id_Trabajo)" class='btn btn-danger'>
+                      <i class="fas fa-trash"></i> Borrar
+                  </button>
               </td>
           </tr>
       </table>

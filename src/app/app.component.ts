@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import {UsuarioService} from './usuario.service';
+import { ValueTransformer } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
   solicitantes = false;
   trabajos = false;
   error = false;
+  footer = false;
 
   constructor(
     public usuarioService: UsuarioService,
@@ -33,6 +35,7 @@ export class AppComponent {
     this.solicitantes = true;
     this.trabajos = false;
     this.opciones = true;
+    this.footer = true;
   }
 
   Trabajos(){
@@ -40,6 +43,7 @@ export class AppComponent {
     this.solicitantes = false;
     this.trabajos = true;
     this.opciones = true;
+    this.footer = true;
   }
 
   salir(){
@@ -47,6 +51,8 @@ export class AppComponent {
     this.solicitantes = false;
     this.trabajos = false;
     this.opciones = false;
+    this.footer = false;
+    this.login_form.reset();
   }
 
   login(){
@@ -61,12 +67,15 @@ export class AppComponent {
           this.solicitantes = true;
           this.trabajos = false;
           this.opciones = true;
-        }else{
-          this.login_form.reset();
-          this.error=true;
+          this.footer = true;
         }
       },
-      error => console.log(error)
+      error =>{
+        console.log(error);
+        console.log('ERROR de logeo');
+        this.login_form.reset();
+        this.error=true;
+      }
     );
   }
 }
