@@ -1,47 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {UsuarioService} from './usuario.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [UsuarioService]
 })
 export class AppComponent {
-  show_login_html=false;
-  show_header_html=false;
-  show_solicitantes_html=true;
-  show_trabajos_html=false;
-  show_solicitudes_html=false;
 
-  hideAll_Html(){
-    this.show_login_html=false;
-    this.show_header_html=false;
-    this.show_solicitantes_html=false;
-    this.show_trabajos_html=false;
-    this.show_solicitudes_html=false;
+  login_form: FormGroup;
+
+  logeado = true;
+  opciones = false;
+  solicitantes = false;
+  trabajos = false;
+  error = false;
+
+  constructor(
+    public usuarioService: UsuarioService,
+    formBuilder: FormBuilder){
+    // based on our html form, build our angular form
+    this.login_form = formBuilder.group({
+      Usuario: ["", Validators.required],
+      Pass: ["", Validators.required]
+    });
   }
 
-  showLogin($event){
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_login_html=true;
+  Solicitantes(){
+    this.logeado = false;
+    this.solicitantes = true;
+    this.trabajos = false;
+    this.opciones = true;
   }
 
-  showSolicitantes($event){
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_header_html=true;
-    this.show_solicitantes_html=true;
+  Trabajos(){
+    this.logeado = false;
+    this.solicitantes = false;
+    this.trabajos = true;
+    this.opciones = true;
   }
-  showTrabajos($event){
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_header_html=true;
-    this.show_trabajos_html=true;
+
+  salir(){
+    this.logeado = true;
+    this.solicitantes = false;
+    this.trabajos = false;
+    this.opciones = false;
   }
-  showSolicitudes($event){
-    // hide all html then show only one html
-    this.hideAll_Html();
-    this.show_header_html=true;
-    this.show_solicitudes_html=true;
+
+  login(){
+    this.usuarioService.login(this.login_form.value.Usuario, this.login_form.value.Pass)
+    .subscribe(data =>
+      {
+        console.log(data['Usuario']);
+        console.log(data['Pass']);
+        if (this.login_form.value.Usuario === data['Usuario'] && this.login_form.value.Pass === data['Pass']) {
+          console.log('Logeado');
+          this.logeado = false;
+          this.solicitantes = true;
+          this.trabajos = false;
+          this.opciones = true;
+        }else{
+          this.login_form.reset();
+          this.error=true;
+        }
+      },
+      error => console.log(error)
+    );
   }
 }
