@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><b>Trabajos</b></h4>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Trabajo</th>
+                        <th>Solicitantes</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let trabajo of trabajos">
+                            <td>{{trabajo.id_Trabajo}}</td>
+                            <td>{{trabajo.Nombre}}</td>
+                            <td>
+                                <a (click)="selectSolicitantes(trabajo.id_Trabajo,trabajo.Nombre, trabajo.solicitantes)">
+                                    <i >
+                                        Solicitantes
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-6" >
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4></h4>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Solicitantes</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let solicitante of trabajo.solicitantes">
+                                {{solicitante.Nombre}}
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-success" (click)="AgregarSolicitantes(solicitante.id_Solicitante)">Agregar solicitante <i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="col-md-4" *ngIf="addsolicitantes">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4><b>{{nombre}}</b></h4>
+                <p>Nombres de los solicitantes al trabajo.</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>Nombre</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let solicitante of solicitants">
+                            <td>{{solicitante.Nombre}}</td>
+                            <td>                       
+                                <a href="#" (click)="desasignar(solicitante)" class='pull-right'>
+                                <i class="material-icons">
+                                    delete
+                                </i>
+                            </a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr>
+
+                <h4>Agregar solicitante</h4>
+                <form [formGroup]="create_solicitud_form" (ngSubmit)="createSolicitud()">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seleccionar solicitante</label>
+                        <select class="form-control" formControlName="id_Solicitante" name="id_Solicitante">
+                            <option *ngFor="let solicitan of solicitantes" value="{{solicitan.id_Solicitante}}">
+                            {{solicitan.Nombre}}
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Agregar solicitante <i class="fas fa-plus"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

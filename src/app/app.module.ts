@@ -20,6 +20,12 @@ import { UpdateTrabajoComponent } from './trabajo/update-trabajo/update-trabajo.
 import { DeleteTrabajoComponent } from './trabajo/delete-trabajo/delete-trabajo.component';
 import { SolicitantesComponent } from './solicitantes/solicitantes.component';
 import { TrabajosComponent } from './trabajos/trabajos.component';
+import { CreateSolicitudComponent } from './solicitud/create-solicitud/create-solicitud.component';
+import { DeleteSolicitudComponent } from './solicitud/delete-solicitud/delete-solicitud.component';
+import { ReadOneSolicitudComponent } from './solicitud/read-one-solicitud/read-one-solicitud.component';
+import { ReadSolicitudComponent } from './solicitud/read-solicitud/read-solicitud.component';
+import { UpdateSolicitudComponent } from './solicitud/update-solicitud/update-solicitud.component';
+import { SolicitudesComponent } from './solicitudes/solicitudes.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { TrabajosComponent } from './trabajos/trabajos.component';
     DeleteTrabajoComponent,
     SolicitantesComponent,
     TrabajosComponent,
+    CreateSolicitudComponent,
+    DeleteSolicitudComponent,
+    ReadOneSolicitudComponent,
+    ReadSolicitudComponent,
+    UpdateSolicitudComponent,
+    SolicitudesComponent,
   ],
   imports: [
     BrowserModule,

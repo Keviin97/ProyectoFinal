@@ -17,6 +17,7 @@ export class AppComponent {
   opciones = false;
   solicitantes = false;
   trabajos = false;
+  solicitudes=false;
   error = false;
   footer = false;
 
@@ -34,6 +35,7 @@ export class AppComponent {
     this.logeado = false;
     this.solicitantes = true;
     this.trabajos = false;
+    this.solicitudes = false;
     this.opciones = true;
     this.footer = true;
   }
@@ -44,14 +46,26 @@ export class AppComponent {
     this.trabajos = true;
     this.opciones = true;
     this.footer = true;
+    this.solicitudes = false;
+  }
+
+  Solicitudes(){
+    this.logeado = false;
+    this.solicitantes = false;
+    this.trabajos = false;
+    this.opciones = true;
+    this.footer = true;
+    this.solicitudes = true;
   }
 
   salir(){
     this.logeado = true;
     this.solicitantes = false;
+    this.solicitudes = false;
     this.trabajos = false;
     this.opciones = false;
     this.footer = false;
+    this.error=false;
     this.login_form.reset();
   }
 
@@ -65,6 +79,7 @@ export class AppComponent {
           console.log('Logeado');
           this.logeado = false;
           this.solicitantes = true;
+          this.solicitudes = false;
           this.trabajos = false;
           this.opciones = true;
           this.footer = true;
